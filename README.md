@@ -1,0 +1,1 @@
+Setup my bash environment
