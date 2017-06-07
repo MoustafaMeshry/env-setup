@@ -20,7 +20,7 @@ if ! ldconfig -p | grep libncurses > /dev/null; then
     echo "Installing libncurses..."
     tar xvzf ncurses-5.9.tar.gz
     cd ncurses-5.9
-    ./configure --prefix=$HOME/local
+    ./configure --prefix=$HOME/usr/local
     make
     make install
     cd ..
@@ -31,7 +31,7 @@ if ! which htop > /dev/null 2> /dev/null; then
     wget -O htop-${HTOP_VERSION}.tar.gz http://hisham.hm/htop/releases/${HTOP_VERSION}/htop-${HTOP_VERSION}.tar.gz
     tar xvfvz htop-${HTOP_VERSION}.tar.gz
     cd htop-${HTOP_VERSION}
-    ./configure --prefix=$HOME/local
+    ./configure --prefix=$HOME/usr/local
     make
     make install
     cd ..
@@ -40,8 +40,8 @@ fi
 # cleanup
 rm -rf $HOME/htop_tmp
 
-# add $HOME/local/bin to $PATH
+# add $HOME/usr/local/bin to $PATH
 if ! which htop > /dev/null 2> /dev/null; then
-    echo -e "\n# add \$HOME/local/bin to \$PATH\nexport PATH=\"$HOME/local/bin:\$PATH\"\n" >> ~/.bashrc
+    echo -e "\n# add \$HOME/usr/local/bin to \$PATH\nexport PATH=\"$HOME/usr/local/bin:\$PATH\"\n" >> ~/.bashrc
 fi
 

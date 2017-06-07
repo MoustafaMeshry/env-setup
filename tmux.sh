@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #-------------------------------------------------------------------------------
-# Script         : Install htop, without root access
+# Script         : Install tmux, without root access
 # Original script: https://gist.github.com/ryin/3106801
 # Modified by    : Moustafa Meshry
 # Date           : May 31, 2017
@@ -23,7 +23,7 @@ if ! ldconfig -p | grep libevent > /dev/null; then
     echo "Installig libevent..."
     tar xvzf libevent-2.0.19-stable.tar.gz
     cd libevent-2.0.19-stable
-    ./configure --prefix=$HOME/local --disable-shared
+    ./configure --prefix=$HOME/usr/local --disable-shared
     make
     make install
     cd ..
@@ -35,7 +35,7 @@ if ! ldconfig -p | grep libncurses > /dev/null; then
     echo "Installing libncurses..."
     tar xvzf ncurses-5.9.tar.gz
     cd ncurses-5.9
-    ./configure --prefix=$HOME/local
+    ./configure --prefix=$HOME/usr/local
     make
     make install
     cd ..
@@ -55,7 +55,7 @@ fi
 # cleanup
 rm -rf $HOME/tmux_tmp
 
-# add $HOME/local/bin to $PATH
+# add $HOME/usr/local/bin to $PATH
 if ! which tmux > /dev/null 2> /dev/null; then
-    echo -e "\n# add \$HOME/local/bin to \$PATH\nexport PATH=\"$HOME/local/bin:\$PATH\"\n" >> ~/.bashrc
+    echo -e "\n# add \$HOME/usr/local/bin to \$PATH\nexport PATH=\"$HOME/usr/local/bin:\$PATH\"\n" >> ~/.bashrc
 fi
