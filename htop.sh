@@ -4,6 +4,7 @@
 # Script: Install htop, without root access
 # Author: Moustafa Meshry
 # Date  : May 31, 2017
+# It's assumed that setUpVirtualRoot.sh has been run as well
 #-------------------------------------------------------------------------------
 
 # exit on error
@@ -41,7 +42,7 @@ fi
 rm -rf $HOME/htop_tmp
 
 # add $HOME/usr/local/bin to $PATH
-if ! which htop > /dev/null 2> /dev/null; then
-    echo -e "\n# add \$HOME/usr/local/bin to \$PATH\nexport PATH=\"$HOME/usr/local/bin:\$PATH\"\n" >> ~/.bashrc
-fi
+#if ! which htop > /dev/null 2> /dev/null; then
+#    echo -e "\n# add \$HOME/usr/local/bin to \$PATH\nexport PATH=\"$HOME/usr/local/bin:\$PATH\"\n" >> ~/.bashrc
+#fi
 

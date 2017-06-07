@@ -6,6 +6,7 @@
 # Modified by    : Moustafa Meshry
 # Date           : May 31, 2017
 # It's assumed that wget and a C/C++ compiler are installed.
+# It's assumed that setUpVirtualRoot.sh has been run as well
 #-------------------------------------------------------------------------------
 
 # exit on error
@@ -14,7 +15,7 @@ set -e
 TMUX_VERSION=2.5
 
 # create our directories
-mkdir -p $HOME/local $HOME/tmux_tmp
+mkdir -p $HOME/usr/local $HOME/tmux_tmp
 cd $HOME/tmux_tmp
 
 # Install libevent, if not already there
@@ -56,6 +57,6 @@ fi
 rm -rf $HOME/tmux_tmp
 
 # add $HOME/usr/local/bin to $PATH
-if ! which tmux > /dev/null 2> /dev/null; then
-    echo -e "\n# add \$HOME/usr/local/bin to \$PATH\nexport PATH=\"$HOME/usr/local/bin:\$PATH\"\n" >> ~/.bashrc
-fi
+#if ! which tmux > /dev/null 2> /dev/null; then
+#    echo -e "\n# add \$HOME/usr/local/bin to \$PATH\nexport PATH=\"$HOME/usr/local/bin:\$PATH\"\n" >> ~/.bashrc
+#fi
